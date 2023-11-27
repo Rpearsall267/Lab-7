@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.PrintWriter;
 
 public class LabSeven{
-   
+   /*Main method that reads file, splits file into arrays, calculates total 
+   *price, and writes prices to new file.
+   *@params: String args
+   *@returns: None void
+   */
    public static void main(String[] args){
       
       String fileIn;
@@ -14,7 +18,7 @@ public class LabSeven{
       double[] discount = new double[2820];
       int[] quanity = new int[2820];
       int i = 0;   
-      
+      //reading file in, and storing info in different arrays.
       try{
          File readFile = new File("OrderDetails.txt");
          Scanner in = new Scanner(readFile);
@@ -33,6 +37,7 @@ public class LabSeven{
       catch (Exception e){
            System.out.println(e.getMessage());   
       }
+      //for loop that calculates total price and writes price to new file.
       try{
          PrintWriter outfile = new PrintWriter("Prices.txt");
          for(int j = 0; j < 2820; j++){
@@ -40,12 +45,9 @@ public class LabSeven{
             outfile.println(orderId[j]+", "+prices);
          }
          outfile.close();
-         }
-         catch (Exception e){
+      }
+      catch (Exception e){
             System.out.println(e.getMessage());
-         }
-   
-   
-   
+      }
    }
 }
